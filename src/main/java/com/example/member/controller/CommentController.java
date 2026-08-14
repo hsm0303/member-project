@@ -7,6 +7,8 @@ import com.example.member.service.CommentService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/posts/{postId}/comments")
 public class CommentController {
@@ -29,5 +31,13 @@ public class CommentController {
         );
 
         return CommentResponse.from(comment);
+    }
+
+    @GetMapping
+    public List<CommentResponse> findComments(@PathVariable Long postId) {
+        return commentService.findCommentsByPostId(postId)
+                .stream()
+                .map(CommentResponse::from)
+                .toList();
     }
 }

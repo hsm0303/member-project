@@ -11,6 +11,8 @@ import com.example.member.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 public class CommentService {
@@ -36,5 +38,11 @@ public class CommentService {
         Comment comment = new Comment(content, member, post);
 
         return commentRepository.save(comment);
+    }
+
+    public List<Comment> findCommentsByPostId(Long postId) {
+        postRepository.findById(postId)
+                .orElseThrow(() -> new PostNotFoundException("게시글을 찾을 수 없습니다."));
+        return commentRepository.findByPostId(postId);
     }
 }

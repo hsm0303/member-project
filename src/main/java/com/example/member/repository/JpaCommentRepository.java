@@ -34,4 +34,9 @@ public class JpaCommentRepository implements CommentRepository {
     public void deleteById(Long id) {
         springDataCommentRepository.deleteById(id);
     }
+
+    @Override
+    public List<Comment> findByPostId(Long postId) {
+        return springDataCommentRepository.findByPostId(postId);
+    }
 }
