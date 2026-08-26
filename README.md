@@ -1,6 +1,6 @@
 # Member Project
 
-Spring Boot와 JPA를 공부하며 만든 백엔드 프로젝트입니다.
+백엔드 공부용 프로젝트입니다.
 
 ## 주요 기능
 
