@@ -42,4 +42,6 @@ public class Comment {
     public Post getPost() {
         return post;
     }
+
+    public void changeContent(String content){this.content = content;}
 }

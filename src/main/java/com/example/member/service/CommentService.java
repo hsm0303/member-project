@@ -45,4 +45,10 @@ public class CommentService {
                 .orElseThrow(() -> new PostNotFoundException("게시글을 찾을 수 없습니다."));
         return commentRepository.findByPostId(postId);
     }
+
+    public void UpdateComment(Long commentId, String comment) {
+        commentRepository.findById(commentId)
+                .orElseThrow(() -> new PostNotFoundException("게시글을 찾을 수 없습니다."));
+        Comment comment = new Comment()
+    }
 }
